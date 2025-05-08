@@ -12,6 +12,9 @@
 
     <artifactId>mcp-server-demo1</artifactId>
 
+    <name>Spring AI MCP Weather STDIO server</name>
+    <description>Sample Spring Boot application demonstrating MCP stdio server usage</description>
+
     <properties>
 
     </properties>
@@ -33,6 +36,19 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+
+                <!-- 打包执行如果发现报错，no main manifest attribute 可以尝试添加下面的配置 -->
+                <configuration>
+                    <mainClass>com.cc.mcp.server.McpServerApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
